@@ -5,7 +5,7 @@
 selectorctl --list-users --version=5.2
 ```
 
-*Output IP info to imap logins from specific domain in `/var/log/maillog`
+*Output IP info to imap logins from specific domain in `/var/log/maillog`*
 ```shell
 for i in $(zgrep domain.com /var/log/maillog* | grep imap-login | grep -v '127.0.0.1\|::1' | cut -d ',' -f 4 | cut -d '=' -f 2 | sort); do curl -s ipinfo.io/$i | grep 'ip\|city\|country\|org'; printf '%20s\n' | tr ' ' -; done
 ```
